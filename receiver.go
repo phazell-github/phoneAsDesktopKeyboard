@@ -12,7 +12,8 @@ func receiver(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		readInput(w, r)
 	} else {
-		fmt.Fprint(w, "Cool web page goes here")
+		//fmt.Fprint(w, "Cool web page goes here")
+		http.ServeFile(w, r, "/home/paul/Documents/golang/phoneAsDesktopKeyboard/index.html")
 	}
 }
 

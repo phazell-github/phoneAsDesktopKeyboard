@@ -11,5 +11,6 @@ Run the binary on the desktop you wish to write to, this starts a web-server tha
 
 # TODO
 - Run install command on server start that checks that xdotool is installed
+- Update serve path for static file
 - Make web UI that submits messages via a post button
 - Make README better
