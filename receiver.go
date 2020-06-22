@@ -9,12 +9,18 @@ import (
 )
 
 func receiver(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
+
 	if r.Method == "POST" {
 		readInput(w, r)
 	} else {
 		//fmt.Fprint(w, "Cool web page goes here")
-		http.ServeFile(w, r, "/home/paul/Documents/golang/phoneAsDesktopKeyboard/index.html")
+		http.ServeFile(w, r, "./fallback.html")
 	}
+}
+
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 
 func readInput(w http.ResponseWriter, r *http.Request) {
@@ -43,6 +49,7 @@ func serve() {
 }
 
 func main() {
-	http.HandleFunc("/", receiver)
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("FrontEnd/build/web"))))
+	http.HandleFunc("/api", receiver)
 	serve()
 }
