@@ -27,3 +27,4 @@ You can also issue a http POST request to this URL and the body of the post gets
 # TODO
 - Run install command on server start that checks that xdotool is installed
 - Ui feedback for successfull response - something fun.
+- Change tab icon
