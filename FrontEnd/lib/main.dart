@@ -83,16 +83,18 @@ class _MyTextField extends State{
       body: Center(
         child: Column(
           children: <Widget>[
-            TextField(
-              controller: nameHolder,
-              decoration: InputDecoration(
-                hintText: 'Input text here',
-                helperText: 'Helper Text',
-                border: const OutlineInputBorder(gapPadding: 4.0)
+            Container(
+              child: TextField(
+                controller: nameHolder,
+                decoration: InputDecoration(
+                  hintText: 'Input text here',
+                  border: const OutlineInputBorder(gapPadding: 4.0)
+                ),
+                keyboardType: TextInputType.multiline,
+                maxLength: null,
+                maxLines: null,
               ),
-              keyboardType: TextInputType.multiline,
-              maxLength: null,
-              maxLines: null,
+              margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
             ),
             ButtonBar(
               alignment: MainAxisAlignment.start,
@@ -112,7 +114,7 @@ class _MyTextField extends State{
                   focusColor: Colors.red,                  
                 )
               ]
-              )
+              )    
         ],)
       )
     );
