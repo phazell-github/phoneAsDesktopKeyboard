@@ -21,7 +21,7 @@ Web UI on can be accessed via your local network, eg:
 
 The correct IP address can be found using _ifconfig_ at the terminal of the host machine.
 
-Alternatively a fallback UI is provided at 192.168.0.XX:9090/api 
+Alternatively a fallback UI is provided at 192.168.0.XX:9090/api  
 You can also issue a http POST request to this URL and the body of the post gets sent to the host machine.
 
 # TODO
