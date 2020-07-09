@@ -8,6 +8,19 @@ import (
 	"os/exec"
 )
 
+func main() {
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("FrontEnd/build/web"))))
+	http.HandleFunc("/api", receiver)
+	serve()
+}
+
+func serve() {
+	err := http.ListenAndServe(":9090", nil)
+	if err != nil {
+		log.Fatal("ListenAndServe failed ", err)
+	}
+}
+
 func receiver(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
 
@@ -36,17 +49,4 @@ func sendToActiveWindow(text string) {
 	if err != nil {
 		fmt.Println("Failed to send message to active window")
 	}
-}
-
-func serve() {
-	err := http.ListenAndServe(":9090", nil)
-	if err != nil {
-		log.Fatal("ListenAndServe failed ", err)
-	}
-}
-
-func main() {
-	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("FrontEnd/build/web"))))
-	http.HandleFunc("/api", receiver)
-	serve()
 }

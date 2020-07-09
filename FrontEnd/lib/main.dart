@@ -23,7 +23,7 @@ class WelcomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Crumbs App',
+      title: 'Smart Key',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -94,7 +94,7 @@ class _MyTextField extends State{
                 maxLength: null,
                 maxLines: null,
               ),
-              margin: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+              margin: const EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
             ),
             ButtonBar(
               alignment: MainAxisAlignment.start,
